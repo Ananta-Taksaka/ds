@@ -3,7 +3,7 @@ import time
 import pandas as pd
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.svm import SVC
-from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn.metrics import confusion_matrix, accuracy_score, recall_score, precision_score
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
@@ -131,6 +131,22 @@ print("Confusion Matrix:")
 print(conf_matrix)
 print(f'Accuracy: {accuracy}')
 
+
+# Menghitung akurasi
+accuracy = accuracy_score(y_test, predictions)
+print(f'Akurasi: {accuracy}')
+
+# Menghitung recall
+recall = recall_score(y_test, predictions, average='macro', labels=None) 
+print(f'Recall: {recall}')
+
+# Menghitung presisi
+precision = precision_score(y_test, predictions, average='macro', labels=None)
+print(f'Presisi: {precision}')
+
+# Menghitung confusion matrix
+conf_matrix = confusion_matrix(y_test, predictions)
+print(f'Confusion Matrix:\n{conf_matrix}')
 
 ##############################################################
 

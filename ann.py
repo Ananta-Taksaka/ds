@@ -7,7 +7,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.optimizers import Adam
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn.metrics import confusion_matrix, accuracy_score, recall_score, precision_score
 from tensorflow.keras.utils import to_categorical
 from sklearn.preprocessing import StandardScaler
 # Load data from CSV file
@@ -146,6 +146,14 @@ accuracy = accuracy_score(true_labels, predicted_labels)
 print("Confusion Matrix:")
 print(conf_matrix)
 print(f'Accuracy: {accuracy}')
+
+# Menghitung recall
+recall = recall_score(true_labels, predicted_labels, average='macro', labels=None) 
+print(f'Recall: {recall}')
+
+# Menghitung presisi
+precision = precision_score(true_labels, predicted_labels, average='macro', labels=None)
+print(f'Presisi: {precision}')
 
 ####################################################################
 # # single value data test
